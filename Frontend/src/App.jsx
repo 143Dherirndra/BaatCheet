@@ -16,7 +16,7 @@ import { setonlineUser, setsocket } from './redux/userSlice'
 const App = () => {
 let {userData,socket,onlineUser}= useSelector(state=>state.user)
  let dispatch= useDispatch()
-getCurrentUser();
+getCurrentUser()
 getOtherUser();
 
 
