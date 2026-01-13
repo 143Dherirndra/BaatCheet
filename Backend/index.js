@@ -14,7 +14,7 @@ const port = process.env.PORT || 5000
 
 app.use(express.json()); // MUST be before routes
 app.use(cors({
-  origin: "https://realtime-chat-i1ml.onrender.com",
+  origin: "http://localhost:5173",
   credentials: true
 }));
 
