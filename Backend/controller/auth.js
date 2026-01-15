@@ -37,14 +37,13 @@ export const signup = async (req, res) => {
     });
 
     const token = await genToken(user._id);
+res.cookie("token", token, {
+  httpOnly: true,
+  maxAge: 7 * 24 * 60 * 60 * 1000, // ✅ comma added
+  sameSite: "None",
+  secure: true,
+});
 
-    res.cookie("token", token, {
-      httpOnly: true,
-     maxAge: 7 * 24 * 60 * 60 * 1000
-      sameSite: "None",
-      secure: true,
-     
-    });
 
     return res.status(201).json(user);
 
@@ -74,15 +73,13 @@ export const login = async (req, res) => {
     }
 
     const token = await genToken(user._id);
+  res.cookie("token", token, {
+  httpOnly: true,
+  maxAge: 7 * 24 * 60 * 60 * 1000, // ✅ comma added
+  sameSite: "None",
+  secure: true,
+});
 
-    res.cookie("token", token, {
-      httpOnly: true,
-      maxAge: 7 * 24 * 60 * 60 * 1000,
-       sameSite: "None",
-      secure: true,
-   // ✅ localhost safe
-     
-    });
 
     // ✅ REMOVE PASSWORD BEFORE SENDING
     const userData = user.toObject();
