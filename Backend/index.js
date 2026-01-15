@@ -14,7 +14,7 @@ const port = process.env.PORT || 5000
 
 app.use(express.json()); // MUST be before routes
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://baatcheet-frontend-wgiw.onrender.com",
   credentials: true
 }));
 
