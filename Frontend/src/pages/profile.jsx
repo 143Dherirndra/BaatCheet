@@ -8,13 +8,13 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { setUserData } from "../redux/userSlice";
-
+import { serverUrl } from "../main";
 const Profile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { userData } = useSelector((state) => state.user);
 
-  const serverUrl = "http://localhost:8000"; // ✅ FIX
+
 
   // const [name, setName] = useState(userData?.name || "");
   const [userName, setUserName] = useState(userData?.userName || "");
@@ -51,7 +51,7 @@ const Profile = () => {
       }
 
       const res = await axios.put(
-  `${serverurl}/api/user/profile`,
+  `${serverUrl}/api/user/profile`,
   formData,
   { withCredentials: true }
 );
