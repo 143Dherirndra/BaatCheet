@@ -51,7 +51,7 @@ const Profile = () => {
       }
 
       const res = await axios.put(
-  "http://localhost:8000/api/user/profile",
+  `${serverurl}/api/user/profile`,
   formData,
   { withCredentials: true }
 );
